@@ -52,5 +52,7 @@ Top Categories and Regions: Identified key product categories and regions that s
 Seasonal Trends: Observed clear seasonal trends, with specific periods showing spikes in sales, indicating potential promotional opportunities.
 Predictive Insights: The ARIMA model provided reliable forecasts, helping anticipate future sales trends and informing strategic planning.
 
-## Conclusion
+## Insights gained
 The Adidas sales analysis project successfully identified crucial insights and trends that can inform business strategies. By employing a range of data analysis techniques, including EDA and time series analysis, the project provided a comprehensive understanding of sales dynamics and potential future performance.
+
+## REFER THE CODE FILE AND CSV FILE FOR MORE DETAILED EXPLANATION OF PROJECT AND PROJECT CODE.
