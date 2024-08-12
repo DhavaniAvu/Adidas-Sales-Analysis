@@ -55,4 +55,4 @@ Predictive Insights: The ARIMA model provided reliable forecasts, helping antici
 ## Insights gained
 The Adidas sales analysis project successfully identified crucial insights and trends that can inform business strategies. By employing a range of data analysis techniques, including EDA and time series analysis, the project provided a comprehensive understanding of sales dynamics and potential future performance.
 
-## REFER THE CODE FILE AND CSV FILE FOR MORE DETAILED EXPLANATION OF PROJECT AND PROJECT CODE.
+## REFER THE CODE FILE AND HTML FILE FOR MORE DETAILED EXPLANATION OF PROJECT AND PROJECT CODE.
