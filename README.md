@@ -19,10 +19,9 @@ The objective is to understand sales patterns across geography, product, and cha
 
 | File | Description |
 |------|-------------|
-| `AdidasSalesAnalysis_TimeSeries.py` | Main Python script for data cleaning, analysis, and time series modeling |
-| `AdidasSalesAnalysis.ipynb` / `adidas sales.ipynb` | Jupyter Notebooks with full EDA and modeling |
+| `AdidasSalesAnalysis.ipynb` / `adidas sales.ipynb` | Jupyter Notebooks Main Python script for data cleaning, analysis, and time series modelin |
 | `Addidas dashboard.pbix` | Power BI dashboard file visualizing sales KPIs |
-| `adidasSales.html` / `AdidasSalesAnalysis_TimeSeries.html` | HTML exports of notebooks for browser viewing |
+| `Addidas dashboard.tbx` | Tableau dashboard file visualizing sales KPIs |
 
 ---
 
@@ -53,7 +52,6 @@ The objective is to understand sales patterns across geography, product, and cha
 ### 📊 KPIs & Comparisons
 
 - **Top Regions**: Southeast had the highest sales efficiency
-- **Best Retailer**: Walmart was top in both sales volume and efficiency
 - **Product Trends**: Men’s categories outsold Women’s
 - **Online vs Retail**: Retail was more efficient despite online growth
 
