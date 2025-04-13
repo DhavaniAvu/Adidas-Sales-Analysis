@@ -21,7 +21,8 @@ The objective is to understand sales patterns across geography, product, and cha
 |------|-------------|
 | `AdidasSalesAnalysis.ipynb` / `adidas sales.ipynb` | Jupyter Notebooks Main Python script for data cleaning, analysis, and time series modelin |
 | `Addidas dashboard.pbix` | Power BI dashboard file visualizing sales KPIs |
-| `Addidas dashboard.tbx` | Tableau dashboard file visualizing sales KPIs |
+| `Addidas dashboard.twbx` | Tableau dashboard file visualizing sales KPIs |
+| `Adidas US Sales Datasets.csv` | The dataset in csv format|
 
 ---
 
@@ -29,8 +30,8 @@ The objective is to understand sales patterns across geography, product, and cha
 
 - **Languages**: Python
 - **Libraries**: pandas, numpy, seaborn, matplotlib, statsmodels, pmdarima
-- **ML Models**: ARIMA, SARIMAX, Auto ARIMA, Linear Regression
-- **BI Tool**: Power BI
+- **ML Models**: ARIMA, SARIMAX, Auto ARIMA, Linear Regression, Logistic Regression
+- **BI Tool**: Power BI, Tableau
 - **Notebook Interface**: Jupyter
 
 ---
@@ -83,6 +84,7 @@ The objective is to understand sales patterns across geography, product, and cha
 | `Auto ARIMA` | Automatically selected parameters (p,d,q) |
 | `SARIMAX` | Seasonal ARIMA with external regressors |
 | `Linear Regression` | As baseline comparison with encoded features |
+| `Logistic Regression`| model for better performance
 
 ---
 
