@@ -1,58 +1,120 @@
-# Adidas-Sales-Analysis
+# 🏷️ Adidas US Sales Analysis & Forecasting
 
-## Description:
+## 📌 Project Description
 
-Explore the dynamic landscape of Adidas sales from 2021 to 2022 through our comprehensive sales analysis. This analysis is to assist the company in dissecting various critical factors influencing sales, such as retailer performance, gender-based insights, regional variations, and more. Each visual element is meticulously crafted to provide a clear and concise understanding of the sales trends across diverse dimensions.
+Explore the dynamic landscape of Adidas sales from 2021 to 2022 through a comprehensive sales analysis. This analysis assists Adidas in dissecting critical factors influencing sales, such as **retailer performance**, **gender-based insights**, and **regional variations**. Each visual is crafted to clearly highlight trends across diverse business dimensions.
 
-## About Dataset:
+---
 
-Dataset Source: Kaggle - Adidas Sales Dataset 
-link - https://www.kaggle.com/datasets/heemalichaudhari/adidas-sales-dataset?resource=download
+## 🧾 About the Dataset
 
-A dataset encompassing Adidas sales comprises information detailing the sales of Adidas products. This dataset may encompass various particulars, including the quantity of units sold, the overall sales revenue, sales locations, product types, and other pertinent details.
+- **Source:** [Kaggle – Adidas Sales Dataset](https://www.kaggle.com/datasets/heemalichaudhari/adidas-sales-dataset?resource=download)
+- **Contents:** The dataset includes:
+  - Product types
+  - Sales revenue
+  - Units sold
+  - Operating profit & margin
+  - Sales locations (region/state/city)
+  - Retailer & sales method
+  - Time-series information (invoice dates)
 
-The utility of Adidas sales data extends to diverse applications, including the analysis of sales patterns, the identification of successful products or marketing initiatives, and the formulation of strategies for future sales endeavors. Furthermore, it serves as a valuable tool for comparing Adidas sales with those of competitors and evaluating the efficacy of distinct marketing or sales channels.
+The dataset supports:
+- Sales trend analysis
+- Market performance comparisons
+- Strategy formulation for future campaigns
+- Channel evaluation (retail vs online)
 
-Potential sources for an Adidas sales dataset encompass Adidas itself, market research firms, governmental entities, or other organizations engaged in tracking sales data. The specific data elements incorporated into an Adidas sales dataset may diverge based on the source and the intended purpose for which the data is employed.
+---
 
-## Project Overview
-The Adidas sales analysis project aims to explore, analyze, and understand the sales patterns of Adidas products using a dataset that includes various features such as product categories, sales figures, and time-related data. The primary focus of this project is to identify key trends and insights that can drive data-driven decisions for optimizing sales strategies.
+## 📚 Project Overview
 
-## Research Questions
-What are the overall sales trends of Adidas products over time?
-Which product categories and regions contribute most to sales?
-How do sales figures vary across different time periods (e.g., seasons, months)?
-What factors influence sales performance, and how can we predict future sales?
+This project aims to **analyze, visualize, and forecast** Adidas' U.S. sales performance. Using Python and Power BI, we derive business intelligence from structured sales records.
 
-## Data Cleaning and Preprocessing
-Data Import and Inspection: Loaded the dataset and inspected the initial structure for completeness and consistency.
-Handling Missing Values: Identified missing values and handled them using imputation techniques where necessary.
-Data Transformation: Converted data types to appropriate formats, such as converting dates into datetime objects for time series analysis.
+### 🎯 Goals
 
-## Exploratory Data Analysis (EDA)
-Descriptive Statistics: Computed mean, median, mode, standard deviation, and other statistical measures to understand data distribution.
+- Identify high-performing regions and product lines
+- Evaluate seasonality in sales trends
+- Compare retailer strategies and margins
+- Predict future sales using time series techniques
 
-## Data Visualization:
-Sales Trends Over Time: Plotted line charts to visualize sales trends over different periods.
-Category Analysis: Used bar charts to compare sales across different product categories.
-Regional Sales: Mapped sales figures across regions to identify top-performing areas.
-Seasonal Patterns: Analyzed sales data across seasons to detect seasonal trends and patterns.
-Techniques and Analyses
+---
 
-## Correlation Analysis: Assessed the relationship between different variables, such as product category, price, and sales volume.
+## ❓ Research Questions
 
-## Time Series Analysis:
-Decomposition: Decomposed the time series into trend, seasonal, and residual components to better understand underlying patterns.
-Moving Averages: Applied moving average techniques to smooth out short-term fluctuations and highlight long-term trends.
-Stationarity Check: Conducted Augmented Dickey-Fuller (ADF) tests to check the stationarity of the time series data.
-ARIMA Modeling: Developed an ARIMA model to forecast future sales, tuning parameters for optimal model performance.
-Forecasting: Produced forecasts and plotted confidence intervals to predict future sales trends.
-Findings and Insights
-Top Categories and Regions: Identified key product categories and regions that significantly contribute to sales.
-Seasonal Trends: Observed clear seasonal trends, with specific periods showing spikes in sales, indicating potential promotional opportunities.
-Predictive Insights: The ARIMA model provided reliable forecasts, helping anticipate future sales trends and informing strategic planning.
+- 📈 What are the overall sales trends of Adidas products over time?
+- 🏷️ Which product categories and regions contribute most to revenue?
+- ⏳ How do sales vary across months and seasons?
+- 🔮 What factors influence performance, and how can we forecast future sales?
 
-## Insights gained
-The Adidas sales analysis project successfully identified crucial insights and trends that can inform business strategies. By employing a range of data analysis techniques, including EDA and time series analysis, the project provided a comprehensive understanding of sales dynamics and potential future performance.
+---
 
-## REFER THE CODE FILE AND HTML FILE FOR MORE DETAILED EXPLANATION OF PROJECT AND PROJECT CODE.
+## 🧹 Data Cleaning & Preprocessing
+
+- **Data Import:** Loaded data using pandas and validated schema
+- **Missing Values:** Checked for NA/nulls and treated them appropriately
+- **Monetary Formatting:** Cleaned dollar signs and commas for numeric conversion
+- **Datetime Handling:** Parsed `Invoice Date` to datetime format
+- **Feature Engineering:** Extracted gender, encoded categories (e.g., one-hot encoding)
+- **Outlier Inspection:** Used boxplots to assess outliers while retaining business-relevant extremes
+
+---
+
+## 🔍 Exploratory Data Analysis (EDA)
+
+### 📊 Descriptive Statistics
+
+- Mean, median, standard deviation, and frequency computed
+- Insights generated for each categorical dimension (region, state, city, retailer, product)
+
+### 📈 Visualizations
+
+- Line plots for time-series sales
+- Bar charts for regional & product sales
+- Box plots for price and profit variance
+- Correlation matrix to study profit-driving features
+
+---
+
+## 🔬 Time Series Analysis
+
+- **Decomposition:** Split sales into trend, seasonal, and residual components
+- **Moving Averages:** Smoothed fluctuations to reveal overall direction
+- **Stationarity Check:** Applied Augmented Dickey-Fuller (ADF) test
+- **ARIMA Modeling:** Tuned ARIMA(p,d,q) to best fit historical sales
+- **Forecasting:** Predicted future trends with confidence intervals
+
+---
+
+## 💡 Key Findings & Insights
+
+- 📌 **Top Regions & Retailers:** Southeast region and Walmart exhibited highest sales efficiency
+- 🛍️ **Product Category Leaders:** Men’s footwear and specific seasonal products dominated
+- ❄️ **Seasonal Peaks:** Spikes observed during summer and holiday periods
+- 📉 **Low Efficiency Areas:** Some states and cities underperformed, signaling growth opportunities
+- 🔮 **Forecast Accuracy:** ARIMA model delivered reliable short-term sales forecasts
+
+---
+
+## 📁 Project Files
+
+| File | Description |
+|------|-------------|
+| `AdidasSalesAnalysis_TimeSeries.py` | Python script with EDA and forecasting code |
+| `AdidasSalesAnalysis_TimeSeries.html` | Exported notebook view with visuals |
+| `adidas sales.ipynb` | Jupyter Notebook version of detailed analysis |
+| `Addidas dashboard.pbix` | Power BI dashboard (regional heatmaps, KPIs, filters) |
+| `adidasSales.html` | Clean HTML report for project showcasing |
+
+---
+
+## 🧪 Tools & Technologies
+
+- **Python Libraries**: `pandas`, `numpy`, `seaborn`, `matplotlib`, `statsmodels`
+- **Time Series Modeling**: ADF Test, ARIMA
+- **Visualization**: Matplotlib, Seaborn, Power BI
+- **Notebook Platforms**: JupyterLab, VS Code
+
+---
+
+## 📎 Folder Structure
+
