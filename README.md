@@ -15,15 +15,6 @@ The objective is to understand sales patterns across geography, product, and cha
 
 ---
 
-## ❓ Research Questions
-
-- 📈 What are the overall sales trends of Adidas products over time?
-- 🏷️ Which product categories and regions contribute most to revenue?
-- ⏳ How do sales vary across months and seasons?
-- 🔮 What factors influence performance, and how can we forecast future sales?
-
----
-
 ## 📁 Files Included
 
 | File | Description |
