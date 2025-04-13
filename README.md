@@ -1,34 +1,10 @@
-# 🏷️ Adidas US Sales Analysis & Forecasting
+# 🏷️ Adidas US Sales Analysis & Time Series Forecasting 📊
 
-## 📌 Project Description
+## 📌 Overview
 
-Explore the dynamic landscape of Adidas sales from 2021 to 2022 through a comprehensive sales analysis. This analysis assists Adidas in dissecting critical factors influencing sales, such as **retailer performance**, **gender-based insights**, and **regional variations**. Each visual is crafted to clearly highlight trends across diverse business dimensions.
+This project is a comprehensive **data analysis and forecasting study** using Adidas US retail sales data. It combines **data cleaning**, **exploratory analysis**, **profit efficiency measurement**, and **advanced time series forecasting models** including **ARIMA** and **SARIMAX**.
 
----
-
-## 🧾 About the Dataset
-
-- **Source:** [Kaggle – Adidas Sales Dataset](https://www.kaggle.com/datasets/heemalichaudhari/adidas-sales-dataset?resource=download)
-- **Contents:** The dataset includes:
-  - Product types
-  - Sales revenue
-  - Units sold
-  - Operating profit & margin
-  - Sales locations (region/state/city)
-  - Retailer & sales method
-  - Time-series information (invoice dates)
-
-The dataset supports:
-- Sales trend analysis
-- Market performance comparisons
-- Strategy formulation for future campaigns
-- Channel evaluation (retail vs online)
-
----
-
-## 📚 Project Overview
-
-This project aims to **analyze, visualize, and forecast** Adidas' U.S. sales performance. Using Python and Power BI, we derive business intelligence from structured sales records.
+The objective is to understand sales patterns across geography, product, and channel — and then use historical trends to **predict future operating profits**.
 
 ### 🎯 Goals
 
@@ -48,73 +24,131 @@ This project aims to **analyze, visualize, and forecast** Adidas' U.S. sales per
 
 ---
 
-## 🧹 Data Cleaning & Preprocessing
+## 📁 Files Included
 
-- **Data Import:** Loaded data using pandas and validated schema
-- **Missing Values:** Checked for NA/nulls and treated them appropriately
-- **Monetary Formatting:** Cleaned dollar signs and commas for numeric conversion
-- **Datetime Handling:** Parsed `Invoice Date` to datetime format
-- **Feature Engineering:** Extracted gender, encoded categories (e.g., one-hot encoding)
-- **Outlier Inspection:** Used boxplots to assess outliers while retaining business-relevant extremes
+| File | Description |
+|------|-------------|
+| `AdidasSalesAnalysis_TimeSeries.py` | Main Python script for data cleaning, analysis, and time series modeling |
+| `AdidasSalesAnalysis.ipynb` / `adidas sales.ipynb` | Jupyter Notebooks with full EDA and modeling |
+| `Addidas dashboard.pbix` | Power BI dashboard file visualizing sales KPIs |
+| `adidasSales.html` / `AdidasSalesAnalysis_TimeSeries.html` | HTML exports of notebooks for browser viewing |
+
+---
+
+## 🧪 Technologies Used
+
+- **Languages**: Python
+- **Libraries**: pandas, numpy, seaborn, matplotlib, statsmodels, pmdarima
+- **ML Models**: ARIMA, SARIMAX, Auto ARIMA, Linear Regression
+- **BI Tool**: Power BI
+- **Notebook Interface**: Jupyter
+
+---
+
+## 🧼 Data Cleaning & Preprocessing
+
+- Removed `$`, `%`, and `,` from monetary values and converted to `float`
+- Converted `Invoice Date` to datetime type
+- Extracted `Gender` from product names
+- Dropped unused columns like `Retailer ID`
+- Created dummies for categorical columns (`Product`, `Retailer`, `Region`, etc.)
+- Created new metrics like `Sales Efficiency = Total Sales / Frequency`
 
 ---
 
 ## 🔍 Exploratory Data Analysis (EDA)
 
-### 📊 Descriptive Statistics
+### 📊 KPIs & Comparisons
 
-- Mean, median, standard deviation, and frequency computed
-- Insights generated for each categorical dimension (region, state, city, retailer, product)
+- **Top Regions**: Southeast had the highest sales efficiency
+- **Best Retailer**: Walmart was top in both sales volume and efficiency
+- **Product Trends**: Men’s categories outsold Women’s
+- **Online vs Retail**: Retail was more efficient despite online growth
 
 ### 📈 Visualizations
 
-- Line plots for time-series sales
-- Bar charts for regional & product sales
-- Box plots for price and profit variance
-- Correlation matrix to study profit-driving features
+- Boxplots for outlier detection
+- Bar plots for region/state/city performance
+- Correlation matrix to identify profit drivers
+- Time series plot of weekly aggregated profit
 
 ---
 
-## 🔬 Time Series Analysis
+## 📉 Time Series Modeling
 
-- **Decomposition:** Split sales into trend, seasonal, and residual components
-- **Moving Averages:** Smoothed fluctuations to reveal overall direction
-- **Stationarity Check:** Applied Augmented Dickey-Fuller (ADF) test
-- **ARIMA Modeling:** Tuned ARIMA(p,d,q) to best fit historical sales
-- **Forecasting:** Predicted future trends with confidence intervals
+### ➤ Goal: Forecast Operating Profit
 
----
+### ⚙️ Stationarity & Transformation
 
-## 💡 Key Findings & Insights
+- Conducted **Augmented Dickey-Fuller (ADF)** test (non-stationary)
+- Applied **Box-Cox** and **log/square root** transformations
+- Performed **seasonal decomposition** (trend, seasonal, residual)
+- Detected seasonality using **ACF/PACF** plots
 
-- 📌 **Top Regions & Retailers:** Southeast region and Walmart exhibited highest sales efficiency
-- 🛍️ **Product Category Leaders:** Men’s footwear and specific seasonal products dominated
-- ❄️ **Seasonal Peaks:** Spikes observed during summer and holiday periods
-- 📉 **Low Efficiency Areas:** Some states and cities underperformed, signaling growth opportunities
-- 🔮 **Forecast Accuracy:** ARIMA model delivered reliable short-term sales forecasts
+### 🧠 Models Used
 
----
-
-## 📁 Project Files
-
-| File | Description |
-|------|-------------|
-| `AdidasSalesAnalysis_TimeSeries.py` | Python script with EDA and forecasting code |
-| `AdidasSalesAnalysis_TimeSeries.html` | Exported notebook view with visuals |
-| `adidas sales.ipynb` | Jupyter Notebook version of detailed analysis |
-| `Addidas dashboard.pbix` | Power BI dashboard (regional heatmaps, KPIs, filters) |
-| `adidasSales.html` | Clean HTML report for project showcasing |
+| Model | Description |
+|-------|-------------|
+| `ARIMA(2,3,2)` | Manually tuned model after differencing |
+| `Auto ARIMA` | Automatically selected parameters (p,d,q) |
+| `SARIMAX` | Seasonal ARIMA with external regressors |
+| `Linear Regression` | As baseline comparison with encoded features |
 
 ---
 
-## 🧪 Tools & Technologies
+## 🧪 Model Evaluation & Metrics
 
-- **Python Libraries**: `pandas`, `numpy`, `seaborn`, `matplotlib`, `statsmodels`
-- **Time Series Modeling**: ADF Test, ARIMA
-- **Visualization**: Matplotlib, Seaborn, Power BI
-- **Notebook Platforms**: JupyterLab, VS Code
+| Metric | Model 1 | Model 2 (Better) |
+|--------|---------|------------------|
+| MAE    | 0.214   | **0.193**        |
+| MSE    | 0.114   | **0.098**        |
+| R²     | -14.39  | **-9.35**        |
+
+- Used **TimeSeriesSplit (5-fold)** cross-validation
+- Computed evaluation metrics on each fold
+- **Second model (SARIMAX/Auto ARIMA)** consistently outperformed
+
+> Note: Negative R² values in some folds suggest more improvement is needed. External factors and holidays could be modeled better in future versions.
 
 ---
 
-## 📎 Folder Structure
+## 🧠 Interpretation of ACF & PACF
 
+- **ACF** helps identify the **MA (q)** term
+- **PACF** helps identify the **AR (p)** term
+- Used both plots to tune ARIMA and SARIMAX models effectively
+
+---
+
+## 📉 Forecast Visualization
+
+- Plotted forecast vs. original values with confidence intervals
+- Forecast curve closely tracks actual profit trend
+- Used `fittedvalues` overlay to inspect residual patterns
+
+---
+
+## 📌 Strategic Business Insights
+
+- Focus on **high-efficiency states/cities** like New York, Miami, Nashville
+- **Retail stores** outperform online in many metrics — enhance in-store UX
+- Expand product lines that perform well in **specialty retailers**
+- Use models to plan **inventory, marketing, and discounting strategies**
+
+---
+
+## 🧑‍💻 Author
+
+**Dhavani Avu**  
+🎓 Master’s in Data Analytics Engineering – George Mason University  
+📫 Email: [dhavaniavu08@gmail.com](mailto:dhavaniavu08@gmail.com)  
+
+---
+
+## 🙌 Acknowledgements
+
+- Dataset simulated for academic research
+- Special thanks to professors and peers who reviewed early drafts
+- Inspired by real-world business forecasting use cases
+
+---
