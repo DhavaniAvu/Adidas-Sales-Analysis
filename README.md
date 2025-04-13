@@ -19,7 +19,7 @@ The objective is to understand sales patterns across geography, product, and cha
 
 | File | Description |
 |------|-------------|
-| `AdidasSalesAnalysis.ipynb` / `adidas sales.ipynb` | Jupyter Notebooks Main Python script for data cleaning, analysis, and time series modelin |
+| `AdidasSalesAnalysis.ipynb` | Jupyter Notebooks Main Python script for data cleaning, analysis, and time series modelin |
 | `Addidas dashboard.pbix` | Power BI dashboard file visualizing sales KPIs |
 | `Addidas dashboard.twbx` | Tableau dashboard file visualizing sales KPIs |
 | `Adidas US Sales Datasets.csv` | The dataset in csv format|
