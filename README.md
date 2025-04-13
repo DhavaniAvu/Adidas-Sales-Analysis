@@ -38,6 +38,7 @@ The objective is to understand sales patterns across geography, product, and cha
 
 ## 🧼 Data Cleaning & Preprocessing
 
+- Chceked and Removed na values
 - Removed `$`, `%`, and `,` from monetary values and converted to `float`
 - Converted `Invoice Date` to datetime type
 - Extracted `Gender` from product names
