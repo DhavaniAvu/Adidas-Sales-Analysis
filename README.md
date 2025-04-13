@@ -99,8 +99,6 @@ The objective is to understand sales patterns across geography, product, and cha
 - Computed evaluation metrics on each fold
 - **Second model (SARIMAX/Auto ARIMA)** consistently outperformed
 
-> Note: Negative R² values in some folds suggest more improvement is needed. External factors and holidays could be modeled better in future versions.
-
 ---
 
 ## 🧠 Interpretation of ACF & PACF
