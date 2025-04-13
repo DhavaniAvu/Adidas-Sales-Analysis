@@ -90,12 +90,7 @@ The objective is to understand sales patterns across geography, product, and cha
 
 ## 🧪 Model Evaluation & Metrics
 
-| Metric | Model 1 | Model 2 (Better) |
-|--------|---------|------------------|
-| MAE    | 0.214   | **0.193**        |
-| MSE    | 0.114   | **0.098**        |
-| R²     | -14.39  | **-9.35**        |
-
+- Used MAE, MSE, R² for intial evaluation
 - Used **TimeSeriesSplit (5-fold)** cross-validation
 - Computed evaluation metrics on each fold
 - **Second model (SARIMAX/Auto ARIMA)** consistently outperformed
