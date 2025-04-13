@@ -1,13 +1,13 @@
 # 🏷️ Adidas US Sales Analysis & Time Series Forecasting 📊
 
 ## 📌 Overview
+This project is a comprehensive data analysis and forecasting study using Adidas US retail sales data. It combines data cleaning, exploratory analysis, profit efficiency measurement, and advanced time series forecasting models including ARIMA and SARIMAX.
 
-This project is a comprehensive **data analysis and forecasting study** using Adidas US retail sales data. It combines **data cleaning**, **exploratory analysis**, **profit efficiency measurement**, and **advanced time series forecasting models** including **ARIMA** and **SARIMAX**.
+The objective is to understand sales patterns across geography, product, and channel — and then use historical trends to predict future operating profits.
 
-The objective is to understand sales patterns across geography, product, and channel — and then use historical trends to **predict future operating profits**.
+---
 
-### 🎯 Goals
-
+## 🎯 Goals
 - Identify high-performing regions and product lines
 - Evaluate seasonality in sales trends
 - Compare retailer strategies and margins
@@ -17,12 +17,12 @@ The objective is to understand sales patterns across geography, product, and cha
 
 ## 📁 Files Included
 
-| File | Description |
-|------|-------------|
-| `adidas sales.ipynb` | Jupyter Notebooks Main Python script for data cleaning, analysis, and time series modelin |
-| `Addidas dashboard.pbix` | Power BI dashboard file visualizing sales KPIs |
-| `Addidas dashboard.twbx` | Tableau dashboard file visualizing sales KPIs |
-| `Adidas US Sales Datasets.csv` | The dataset in csv format|
+| File                     | Description                                                |
+|--------------------------|------------------------------------------------------------|
+| `adidas sales.ipynb`     | Jupyter Notebook with full pipeline and model implementations |
+| `Addidas dashboard.pbix` | Power BI dashboard file visualizing sales KPIs             |
+| `Addidas dashboard.twbx` | Tableau dashboard file visualizing sales KPIs              |
+| `Adidas US Sales Datasets.csv` | The dataset used for this analysis                        |
 
 ---
 
@@ -31,94 +31,103 @@ The objective is to understand sales patterns across geography, product, and cha
 - **Languages**: Python
 - **Libraries**: pandas, numpy, seaborn, matplotlib, statsmodels, pmdarima
 - **ML Models**: ARIMA, SARIMAX, Auto ARIMA, Linear Regression, Logistic Regression
-- **BI Tool**: Power BI, Tableau
+- **BI Tools**: Power BI, Tableau
 - **Notebook Interface**: Jupyter
 
 ---
 
 ## 🧼 Data Cleaning & Preprocessing
 
-- Chceked and Removed na values
-- Removed `$`, `%`, and `,` from monetary values and converted to `float`
-- Converted `Invoice Date` to datetime type
-- Extracted `Gender` from product names
-- Dropped unused columns like `Retailer ID`
-- Created dummies for categorical columns (`Product`, `Retailer`, `Region`, etc.)
-- Created new metrics like `Sales Efficiency = Total Sales / Frequency`
+- Removed NA/null values
+- Removed `$`, `%`, and `,` from monetary fields and converted to float
+- Converted `Invoice Date` to datetime format
+- Aggregated records to **weekly profit trends** using `resample('W')`
+- Extracted Gender and Product Type from item names
+- Dropped unused fields like `Retailer ID`
+- Created dummy variables for `Product`, `Retailer`, `Region`, and more
+- Engineered new metric: `Sales Efficiency = Total Sales / Frequency`
 
 ---
 
 ## 🔍 Exploratory Data Analysis (EDA)
 
-### 📊 KPIs & Comparisons
+### 📊 Key KPIs & Business Insights
 
-- **Top Regions**: Southeast had the highest sales efficiency
-- **Product Trends**: Men’s categories outsold Women’s
-- **Online vs Retail**: Retail was more efficient despite online growth
+- **Top Regions**: Southeast and New York led in overall profit and efficiency
+- **Product Trends**: Men’s products consistently outsold women’s across categories
+- **Retail Channels**: In-store Retailers were more efficient despite growing online sales
 
-### 📈 Visualizations
+### 📈 Visualizations Used
 
-- Boxplots for outlier detection
-- Bar plots for region/state/city performance
-- Correlation matrix to identify profit drivers
-- Time series plot of weekly aggregated profit
+- Histograms for disrtibutions and skewness checks 
+- Boxplots for outlier detection in Profit and Sales
+- Bar plots for comparisons by Region, State, City
+- Correlation heatmaps to identify key drivers of operating profit
+- Weekly time series plots to visualize sales trend seasonality
 
 ---
 
-## 📉 Time Series Modeling
+## 📉 Time Series Forecasting
 
-### ➤ Goal: Forecast Operating Profit
+### ➤ Objective
+Forecast Operating Profit using statistical and machine learning models.
 
 ### ⚙️ Stationarity & Transformation
 
-- Conducted **Augmented Dickey-Fuller (ADF)** test (non-stationary)
-- Applied **Box-Cox** and **log/square root** transformations
-- Performed **seasonal decomposition** (trend, seasonal, residual)
-- Detected seasonality using **ACF/PACF** plots
+- Conducted Augmented Dickey-Fuller (ADF) test — confirmed **non-stationarity**
+- Applied **Box-Cox**, log, and square root transformations (Box-Cox yielded best results)
+- Seasonal decomposition into **trend, seasonality, and residual**
+- Detected significant **weekly seasonality** via ACF and PACF
 
 ### 🧠 Models Used
 
-| Model | Description |
-|-------|-------------|
-| `ARIMA(2,3,2)` | Manually tuned model after differencing |
-| `Auto ARIMA` | Automatically selected parameters (p,d,q) |
-| `SARIMAX` | Seasonal ARIMA with external regressors |
-| `Linear Regression` | As baseline comparison with encoded features |
-| `Logistic Regression`| model for better performance
+| Model             | Description |
+|------------------|-------------|
+| ARIMA(2,3,2)      | Manual tuning after differencing |
+| Auto ARIMA        | Automatically optimized `p,d,q` values |
+| SARIMAX           | ARIMA with seasonal and exogenous regressors |
+| Linear Regression | Baseline with encoded features |
+| Logistic Regression | For comparison and classification-type scenarios |
 
 ---
 
-## 🧪 Model Evaluation & Metrics
+## 📊 Model Evaluation & Metrics
 
-- Used MAE, MSE, R² for intial evaluation
-- Used **TimeSeriesSplit (5-fold)** cross-validation
-- Computed evaluation metrics on each fold
-- **Second model (SARIMAX/Auto ARIMA)** consistently outperformed
-
----
-
-## 🧠 Interpretation of ACF & PACF
-
-- **ACF** helps identify the **MA (q)** term
-- **PACF** helps identify the **AR (p)** term
-- Used both plots to tune ARIMA and SARIMAX models effectively
+- Evaluated using **MAE**, **MSE**, and **R²**
+- Used **TimeSeriesSplit (5-fold CV)** to validate consistency
+- SARIMAX consistently outperformed other models in cross-validation
 
 ---
 
-## 📉 Forecast Visualization
+## 📈 ACF & PACF Interpretation
 
-- Plotted forecast vs. original values with confidence intervals
-- Forecast curve closely tracks actual profit trend
-- Used `fittedvalues` overlay to inspect residual patterns
+- **ACF** identifies moving average (MA) components (q)
+- **PACF** identifies autoregressive (AR) components (p)
+- Both were used to optimize ARIMA and SARIMAX parameters
+
+---
+
+## 🔮 Forecast Visualization
+
+- Plotted **forecast vs. original** values with confidence intervals
+- Included **fitted value overlays** to inspect residual patterns
+- Forecast curve closely tracks historical trends with minor variance
+
+---
+
+## 🔍 Residual Analysis
+
+- Residuals from SARIMAX model showed **no autocorrelation** and **random scatter**, indicating a good fit
+- Residual plots helped validate model assumptions post-prediction
 
 ---
 
 ## 📌 Strategic Business Insights
 
-- Focus on **high-efficiency states/cities** like New York, Miami, Nashville
-- **Retail stores** outperform online in many metrics — enhance in-store UX
-- Expand product lines that perform well in **specialty retailers**
-- Use models to plan **inventory, marketing, and discounting strategies**
+- Focus expansion in **high-efficiency cities**: New York, Miami, Nashville
+- Despite rising online sales, **Retail stores outperformed** — improve in-store experience and marketing
+- Specialty retailers performed well — consider **exclusive product launches**
+- Use time series models to **automate inventory planning**, marketing timing, and promotions
 
 ---
 
