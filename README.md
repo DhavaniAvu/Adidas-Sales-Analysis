@@ -1,4 +1,4 @@
-# 🏷️ Adidas US Sales Analysis & Time Series Forecasting 📊
+# 🏷️ Adidas US Sales Analysis & Inventory Control Analysis 📊
 
 ## 📌 Overview
 This project is a comprehensive data analysis and forecasting study using Adidas US retail sales data. It combines data cleaning, exploratory analysis, profit efficiency measurement, and advanced time series forecasting models including ARIMA and SARIMAX.
